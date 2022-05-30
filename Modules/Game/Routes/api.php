@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Modules\Game\Http\Controllers\Api\CodeController;
+use Modules\Game\Http\Controllers\Api\GameController;
 use Modules\Game\Http\Controllers\Api\WinnerController;
 
 /*
@@ -24,6 +25,9 @@ Route::get('/winners',[WinnerController::class,'index']);
 Route::post('/winners',[WinnerController::class,'store']);
 Route::put('/winners/{id}',[WinnerController::class,'update']);
 Route::delete('/winners/{id}',[WinnerController::class,'destroy']);
+
+
+Route::get('/set-code',[GameController::class,'setCode']);
 
 Route::middleware('auth:api')->get('/game', function (Request $request) {
     return $request->user();
