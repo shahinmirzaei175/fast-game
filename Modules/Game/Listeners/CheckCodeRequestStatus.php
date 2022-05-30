@@ -38,7 +38,7 @@ class CheckCodeRequestStatus implements ShouldQueue
         {
             Code::create([
                 'code'  =>  $event->code,
-                'code'  => $event->mobile
+                'mobile'  => $event->mobile
             ]);
         }
     }
