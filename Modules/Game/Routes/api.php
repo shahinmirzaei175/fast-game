@@ -28,7 +28,7 @@ Route::delete('/winners/{id}',[WinnerController::class,'destroy']);
 
 
 Route::post('/set-code',[GameController::class,'setCode']);
-Route::get('/check-winner',[GameController::class,'checkWinner']);
+Route::post('/check-winner',[GameController::class,'checkWinner']);
 
 Route::middleware('auth:api')->get('/game', function (Request $request) {
     return $request->user();
