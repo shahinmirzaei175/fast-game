@@ -13,11 +13,7 @@ class NewCodeRequestInserted
 
     public $mobile;
     public $code;
-    /**
-     * Create a new event instance.
-     *
-     * @return void
-     */
+
     public function __construct($mobile,$code)
     {
         $this->mobile = $mobile;
@@ -27,7 +23,7 @@ class NewCodeRequestInserted
     /**
      * Get the channels the event should be broadcast on.
      *
-     * @return array
+     * @return PrivateChannel
      */
     public function broadcastOn()
     {

@@ -19,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(CrudRepositoryInterface::class,CrudRepository::class);
 
         $this->app->register(ModuleServiceProvider::class);
+
     }
 
     /**
