@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Game\Events\NewCodeRequestInserted;
 use Modules\Game\Http\Requests\CodeStoreRequest;
+use Illuminate\Support\Facades\Redis;
 
 class GameController extends Controller
 {
