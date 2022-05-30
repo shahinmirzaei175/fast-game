@@ -22,4 +22,4 @@ Fast Game is a web application for lottery.
 ## Test
 
 - run this command for feature testing
-php artisan test
+- php artisan test
