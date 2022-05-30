@@ -8,5 +8,6 @@ use App\Repositories\Interfaces\CrudRepositoryInterface;
 
 interface WinnerRepositoryInterface extends CrudRepositoryInterface
 {
+    public function checkWinner($data);
 
 }
