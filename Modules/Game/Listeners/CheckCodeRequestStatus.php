@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Log;
 use Modules\Game\Entities\Code;
 use Modules\Game\Entities\Winner;
+use Modules\Game\Repositories\Interfaces\WinnerRepositoryInterface;
 
 class CheckCodeRequestStatus implements ShouldQueue
 {
@@ -15,9 +16,10 @@ class CheckCodeRequestStatus implements ShouldQueue
      *
      * @return void
      */
-    public function __construct()
+    public $winnerRepository;
+    public function __construct(WinnerRepositoryInterface $winnerRepository)
     {
-        //
+        $this->winnerRepository = $winnerRepository;
     }
 
     /**
@@ -31,15 +33,15 @@ class CheckCodeRequestStatus implements ShouldQueue
         Log::info("Mobile : ".$event->mobile." , Code : ".$event->code);
         $code = Code::where('code',$event->code)->first();
         $firstWin = Winner::where([
-            ['code','==',$event->code],
-            ['mobile','==',$event->mobile],
+            ['code',$event->code],
+            ['mobile',$event->mobile],
         ])->exists();
-        if ($code != null && $code->count > 0 && !$firstWin)
+        if ($code != null && $code->count > 0 && $firstWin == false)
         {
-            Winner::create([
-                'code'  =>  $event->code,
-                'mobile'  => $event->mobile
-            ]);
+          $this->winnerRepository->store([
+              'code'  =>  $event->code,
+              'mobile'  => $event->mobile]
+          );
             $code->count = $code->count - 1;
             $code->save();
         }
