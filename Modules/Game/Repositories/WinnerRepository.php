@@ -15,8 +15,8 @@ class WinnerRepository extends CrudRepository implements WinnerRepositoryInterfa
     public function checkWinner($data)
     {
         return Winner::where([
-            ['mobile','==',$data['mobile']],
-            ['code','==',$data['code']],
+            ['mobile',$data['mobile']],
+            ['code',$data['code']],
         ])->exists();
     }
 
