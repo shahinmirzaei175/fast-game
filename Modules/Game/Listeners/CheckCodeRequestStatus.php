@@ -36,10 +36,12 @@ class CheckCodeRequestStatus implements ShouldQueue
         ])->exists();
         if ($code != null && $code->count > 0 && !$firstWin)
         {
-            Code::create([
+            Winner::create([
                 'code'  =>  $event->code,
                 'mobile'  => $event->mobile
             ]);
+            $code->count = $code->count - 1;
+            $code->save();
         }
     }
 }
