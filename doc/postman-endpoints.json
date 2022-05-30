@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "80bed4f7-2f83-4fa8-9af3-c02ba6bc1daa",
+		"name": "Fast Game",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3481172"
+	},
+	"item": [
+		{
+			"name": "code",
+			"item": [
+				{
+					"name": "store code",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\":\"12345\",\r\n    \"count\":\"1000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://top7.ir/api/codes",
+							"protocol": "http",
+							"host": [
+								"top7",
+								"ir"
+							],
+							"path": [
+								"api",
+								"codes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get codes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\":\"09118360436\",\r\n    \"count\":\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://top7.ir/api/codes",
+							"protocol": "http",
+							"host": [
+								"top7",
+								"ir"
+							],
+							"path": [
+								"api",
+								"codes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Winner",
+			"item": [
+				{
+					"name": "set code",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mobile\":\"09118360436\",\r\n    \"code\":\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://top7.ir/api/set-code",
+							"protocol": "http",
+							"host": [
+								"top7",
+								"ir"
+							],
+							"path": [
+								"api",
+								"set-code"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check winner",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mobile\":\"09118360436\",\r\n    \"code\":\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://top7.ir/api/check-winner",
+							"protocol": "http",
+							"host": [
+								"top7",
+								"ir"
+							],
+							"path": [
+								"api",
+								"check-winner"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
